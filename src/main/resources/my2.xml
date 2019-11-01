@@ -32,8 +32,8 @@
 
 	<mappers> 
 		<!-- 所有用到的 mapper ，可以指定到具体的 xml 文件，也可以指定到包(方便)  -->
-		<!-- <package name="mapper" /> -->
-		<mapper resource="mapper/UserMapper.xml"/>
+		<package name="top.ziw.simp.mapper"/>
+		<!-- <mapper resource="top/ziw/simp/mapper/UserMapper.xml"/> -->
 	</mappers>
 
 </configuration>

@@ -29,18 +29,18 @@ public class BaseMapperTest {
 		}
 	}
 
-//	@Test
-//	public void testSelectAll() {
-//		SqlSession sqlSession = sqlSessionFactory.openSession();
-//		try {
-//			List<Country> countryList = sqlSession.selectList("top.ziw.simp.mapper.Test11.selectAll");
-//			// printCountryList(countryList);
-//			System.out.println(countryList);
-//		} finally {
-//			// 不要忘记关闭 sqlSession
-//			sqlSession.close();
-//		}
-//	}
+	@Test
+	public void testSelectAll() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			List<Country> countryList = sqlSession.selectList("Test11.selectAll");
+			// printCountryList(countryList);
+			System.out.println(countryList);
+		} finally {
+			// 不要忘记关闭 sqlSession
+			sqlSession.close();
+		}
+	}
 
 	@Test 
 	public void testUserMapper() { 
