@@ -21,7 +21,7 @@ public class BaseMapperTest {
 	@BeforeClass
 	public static void init() {
 		try {
-			Reader reader = Resources.getResourceAsReader("my2.xml");
+			Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 			reader.close();
 		} catch (IOException ignore) {
@@ -33,7 +33,7 @@ public class BaseMapperTest {
 	public void testSelectAll() {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			List<Country> countryList = sqlSession.selectList("Test11.selectAll");
+			List<Country> countryList = sqlSession.selectList("top.ziw.simp.mapper.CountryMapper.selectAll");
 			// printCountryList(countryList);
 			System.out.println(countryList);
 		} finally {

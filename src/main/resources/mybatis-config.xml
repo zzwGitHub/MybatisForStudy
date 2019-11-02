@@ -21,10 +21,16 @@
 			
 			<dataSource type="UNPOOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://172.26.104.56:3306/test2"/>
+				<property name="url" value="jdbc:mysql://94.191.35.159:3603/ziw"/>
 				<property name="username" value="root"/>
 				<property name="password" value="root"/>
 			</dataSource>
+<!-- 			<dataSource type="UNPOOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver"/>
+				<property name="url" value="jdbc:mysql://172.26.104.56:3306/test2"/>
+				<property name="username" value="root"/>
+				<property name="password" value="root"/>
+			</dataSource> -->
 		
 		</environment>
 	

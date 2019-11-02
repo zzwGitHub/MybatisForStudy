@@ -7,8 +7,8 @@
 		<result property="userPassword" column="user_password"/>
 		<result property="userEmail" column="user_email"/>
 		<result property="userInfo" column="user_info"/>
-		<result property="headImg" column="head_img" jdbcType="BLOB"/>
-		<result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+		<result property="headImg" column="head_img" />
+		<result property="createTime" column="create_time" />
 	</resultMap>
 	<select id="selectById" resultMap="userMap" >
 		select * from sys_user where id = #{id};
