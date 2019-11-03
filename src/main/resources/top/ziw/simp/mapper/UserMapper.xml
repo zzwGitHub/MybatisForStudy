@@ -13,4 +13,16 @@
 	<select id="selectById" resultMap="userMap" >
 		select * from sys_user where id = #{id};
 	</select>
+	
+	<insert id="insert2" useGeneratedKeys="true" keyProperty="id">
+	<selectKey keyColumn="id" resultType="long" keyProperty="id" order="AFTER" >
+	SELECT LAST INSERT ID () 
+	</selectKey>
+	
+	
+	insert into sys_user(user_name, user_password, user_email,
+	user_info, head_img, create_time)
+	values(
+	#{userName}, #{userPassword}, #{userEmail}, #{userInfo}, #{headImg, jdbcType=BLOB}, #{createTime, jdbcType=TIMESTAMP} )
+	</insert>
 </mapper>
