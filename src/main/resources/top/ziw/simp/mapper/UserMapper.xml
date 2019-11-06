@@ -18,11 +18,83 @@
 	<selectKey keyColumn="id" resultType="long" keyProperty="id" order="AFTER" >
 	SELECT LAST INSERT ID () 
 	</selectKey>
-	
-	
 	insert into sys_user(user_name, user_password, user_email,
 	user_info, head_img, create_time)
 	values(
 	#{userName}, #{userPassword}, #{userEmail}, #{userInfo}, #{headImg, jdbcType=BLOB}, #{createTime, jdbcType=TIMESTAMP} )
 	</insert>
+	
+	<update id="updateByIdSelective">
+	update sys_user
+	set
+		<if test="userPassword != null and userPassword != ''">
+			user_password = #{userPassword},
+		</if>
+		<if test="createTime != null">
+			create_time = #{cerateTime, jdbcType=TIMESTAMP},
+		</if>
+		id = #{id}
+	where id = #{id}
+	</update>
+	
+	<update id="updateByIdSelective2" >
+	update sys_user
+	<set>
+		<if test="userPassword != null and userPassword != ''">
+			user_password = #{userPassword},
+		</if>
+		<if test="createTime != null">
+			create_time = #{cerateTime, jdbcType=TIMESTAMP},
+		</if>
+		id = #{id}
+	</set>
+	where id = #{id}
+	</update>
+	
+	<update id="test001">
+		update sys_user
+		set
+		<foreach collection="_parameter" item="val" index="key" separator=",">
+			${key} = #{val}
+		</foreach>
+		where id = #{id}
+	</update>
+
+
+	<select id="selectLike" resultMap="userMap" >
+		<bind name= "bb" value="'%' + string + '%'" />
+		select * from sys_user 
+		where user_password like #{bb}
+	</select>
+	
+	<select id="testBind" resultMap="userMap" >
+		<bind name= "bb" value="'select * from sys_user where user_password = '" />
+		<bind name="pirnt" value="@top.ziw.simp.mapper.BaseMapperTest@tep()"/>
+		${bb} #{pirnt}
+	</select>
+<!-- 	<select id="testBind" resultMap="userMap" >
+		<bind name="pirnt" value="'@top.ziw.simp.mapper.BaseMapperTest@tep()'"/>
+		<bind name= "bb" value="'select * from sys_user where user_password like \'%' + string +'%\''" />
+		${bb}
+		#{pirnt}
+	</select> -->
+	
+	<select id="testInt" resultMap="userMap" >
+		select * from sys_user where id = ${f}
+	</select>
+	
+	<select id="testAll" resultMap="userMap" >
+		 #{"select * from sys_user"}
+	</select>
+
+	<!-- <if test="userName != null and userName !=''">
+		<bind name= userNarneLike value="'%' + userName + '%'" />
+		and user_name like #{userNarneLike} 
+	</if> -->
+
+
+
+
+
+
 </mapper>

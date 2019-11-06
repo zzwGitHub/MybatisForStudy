@@ -2,7 +2,6 @@ package top.ziw.simp.mapper;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -12,7 +11,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import top.ziw.simp.model.Country;
 import top.ziw.simp.model.SysUser;
 
 public class BaseMapperTest {
@@ -30,6 +28,20 @@ public class BaseMapperTest {
 		}
 	}
 
+//	@Test 
+//	public void testAutoMapper() {		
+//		SqlSession sqlSession =sqlSessionFactory.openSession( );
+//		try { 
+//			SysUserMapper userMapper = sqlSession.getMapper(SysUserMapper.class); 
+//			List<test.model.SysUser> users = userMapper.selectAll();
+////			List<SysUser> users = userMapper.testInt(1);
+//			System.out.println(users.size()); 
+//		}finally { //不要忘记关闭 sqlSession 
+//		  sqlSession.close(); 
+//		}
+//	}
+	
+	
 //	@Test
 //	public void testSelectAll() {
 //		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -43,19 +55,24 @@ public class BaseMapperTest {
 //		}
 //	}
 
-	@Test 
-	public void testUserMapper() { 
-		SqlSession sqlSession =sqlSessionFactory.openSession( );
-	  
-		try { 
-			UserMapper userMapper = sqlSession.getMapper(UserMapper.class); 
-			SysUser user = userMapper.selectByIdA(1l); 
-			System.out.println(user.toString()); 
-		}finally { //不要忘记关闭 sqlSession 
-		  sqlSession.close(); 
-		}
-	  
-	}
+//	@Test 
+//	public void testUserMapper() {		
+//		SqlSession sqlSession =sqlSessionFactory.openSession( );
+//		try { 
+//			UserMapper userMapper = sqlSession.getMapper(UserMapper.class); 
+//			List<SysUser> users = userMapper.testAll();
+////			List<SysUser> users = userMapper.testInt(1);
+//			System.out.println(users.size()); 
+//		}finally { //不要忘记关闭 sqlSession 
+//		  sqlSession.close(); 
+//		}
+//	}
+	
+//	public static String tep() {
+//		System.out.println("teteetetp");
+//		return "123131ff";
+//	}
+	
 //	 
 //	@Test 
 //	public void testUserInsert() { 
@@ -83,6 +100,24 @@ public class BaseMapperTest {
 //	  
 //	}
 	 
-		
+//	@Test 
+//	public void testUserUpdateMapper() { 
+//		SqlSession sqlSession =sqlSessionFactory.openSession( );
+//	  
+//		try { 
+//			UserMapper userMapper = sqlSession.getMapper(UserMapper.class); 
+//			
+//			SysUser sysuser =  new SysUser();
+//			sysuser.setId(1l);
+//			sysuser.setUserPassword("123131ff");
+//			
+//			int num = userMapper.updateByIdSelective2(sysuser);
+//			System.out.println(num); 
+//		}finally { //不要忘记关闭 sqlSession 
+//			sqlSession.commit();
+//		  sqlSession.close(); 
+//		}
+//	  
+//	}
 
 }
