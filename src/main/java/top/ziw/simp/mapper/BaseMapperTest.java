@@ -28,6 +28,10 @@ public class BaseMapperTest {
 		}
 	}
 
+	private void test2(){
+		System.out.println("12123");
+	}
+
 //	@Test 
 //	public void testAutoMapper() {		
 //		SqlSession sqlSession =sqlSessionFactory.openSession( );
